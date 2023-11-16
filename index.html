@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Probando Libreria</title>
+</head>
+<body>
+    <div class='card-wrapper'></div>
+    <form id="form" class="form">
+        <div>
+            <input type="text" id="number" name="number" placeholder="Numero tarjeta">
+            <input type="text" id="name" name="name" placeholder="Nombre Titular">
+        </div>
+        <div>
+            <input type="text" id="expiry" name="expiry" placeholder="Expira">
+            <input type="text" id="cvc" name="cvc" placeholder="CCV">
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script src="js/card.js"></script>
+    <script>
+        var card = new Card({
+    // a selector or DOM element for the form where users will
+    // be entering their information
+    form: 'form', // *required*
+    // a selector or DOM element for the container
+    // where you want the card to appear
+    container: '.card-wrapper', // *required*
+
+    formSelectors: {
+        numberInput: 'input#number', // optional — default input[name="number"]
+        expiryInput: 'input#expiry', // optional — default input[name="expiry"]
+        cvcInput: 'input#cvc', // optional — default input[name="cvc"]
+        nameInput: 'input#name' // optional - defaults input[name="name"]
+    },
+
+    width: 200, // optional — default 350px
+    formatting: true, // optional - default true
+
+    // Strings for translation - optional
+    messages: {
+        validDate: 'valid\ndate', // optional - default 'valid\nthru'
+        monthYear: 'mm/yyyy', // optional - default 'month/year'
+    },
+
+    // Default placeholders for rendered fields - optional
+    placeholders: {
+        number: '•••• •••• •••• ••••',
+        name: 'Full Name',
+        expiry: '••/••',
+        cvc: '•••'
+    },
+
+    masks: {
+        cardNumber: '•' // optional - mask card number
+    },
+
+    // if true, will log helpful messages for setting up Card
+    debug: false // optional - default false
+});
+    </script>
+</body>
+</html>
